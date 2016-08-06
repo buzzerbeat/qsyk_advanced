@@ -5,7 +5,8 @@ namespace qsyk\models;
 use common\components\Utility;
 use Yii;
 use yii\helpers\ArrayHelper;
-use common\models\User;
+//use common\models\User;
+use qsyk\models\User;
 
 /**
  * This is the model class for table "tag".
@@ -103,7 +104,7 @@ class Tag extends \yii\db\ActiveRecord
         return ArrayHelper::toArray(
             $users,
             [
-                'common\models\User' => [
+                'qsyk\models\User' => [
                     "username",
                     "avatarSid",
                 ],

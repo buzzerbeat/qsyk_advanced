@@ -4,7 +4,8 @@ namespace qsyk\models;
 
 use qsyk\commands\DataController;
 use kartik\helpers\Enum;
-use common\models\User;
+//use common\models\User;
+use qsyk\models\User;
 use common\components\Utility;
 use Yii;
 
@@ -149,7 +150,7 @@ class Resource extends \yii\db\ActiveRecord
 
     public function getUserName()
     {
-        return !empty($this->user) ? $this->user->username : '';
+        return !empty($this->user) ? $this->user->nick_name : '';
     }
 
     public function getRandomCache() {
@@ -158,7 +159,7 @@ class Resource extends \yii\db\ActiveRecord
 
     public function getUserAvatar()
     {
-        return !empty($this->user) ? Utility::sid($this->user->avatar) : '';
+        return !empty($this->user) ? Utility::sid($this->user->avatar_img) : '';
     }
     public function getDig() {
         return !empty($this->resourceCount) ? $this->resourceCount->resource_dig : 0;
@@ -194,7 +195,9 @@ class Resource extends \yii\db\ActiveRecord
     {
 //        $fields = parent::fields();
         $fields = [
+            'id',
             'sid',
+            'type',
             'desc',
             'userName',
             'userAvatar',

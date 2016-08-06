@@ -3,7 +3,8 @@
 namespace qsyk\models;
 
 use common\components\Utility;
-use common\models\User;
+//use common\models\User;
+use qsyk\models\User;
 use Yii;
 
 /**
@@ -95,12 +96,12 @@ class ResourcePost extends \yii\db\ActiveRecord
 
     public function getUserName()
     {
-        return !empty($this->userModel) ? $this->userModel->username : '';
+        return !empty($this->userModel) ? $this->userModel->nick_name : '';
     }
 
     public function getUserAvatar()
     {
-        return !empty($this->userModel) ? Utility::sid($this->userModel->avatar) : '';
+        return !empty($this->userModel) ? Utility::sid($this->userModel->avatar_img) : '';
     }
 
     public function getCreateTimeElapsed() {
